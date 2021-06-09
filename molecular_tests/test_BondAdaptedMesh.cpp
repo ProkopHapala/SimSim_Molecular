@@ -72,7 +72,8 @@ class TestAppRARFF: public AppSDL2OGL_3D { public:
 
 TestAppRARFF::TestAppRARFF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D( id, WIDTH_, HEIGHT_ ) {
 
-    fontTex   = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    //fontTex   = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    fontTex     = makeTextureHard( "resources_gl1/dejvu_sans_mono_RGBA_pix.bmp" );
 
     mol.loadXYZ_bas( "data/CH4.bas" );
 

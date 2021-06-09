@@ -98,18 +98,20 @@ TestAppSoftMolDyn::TestAppSoftMolDyn( int& id, int WIDTH_, int HEIGHT_ ) : AppSD
     repl.functions["move\n"] = [this]{ moveAtoms(world.natoms, world.apos, (Vec3d){1.0,0.0,0.0}); };
 
 
-    fontTexPix = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
-    fontTex    = makeTexture( "common_resources/dejvu_sans_mono_RGBA_inv.bmp" );
+    //fontTexPix = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    //fontTex    = makeTexture( "common_resources/dejvu_sans_mono_RGBA_inv.bmp" );
+    fontTexPix = makeTextureHard( "resources_g1/dejvu_sans_mono_RGBA_pix.bmp" );
+    fontTex    = makeTexture( "resources_g1/dejvu_sans_mono_RGBA_inv.bmp" );
 
-    params.loadAtomTypes( "common_resources/AtomTypes.dat" );
+    params.loadAtomTypes( "data/AtomTypes.dat" );
     //mol.atomTypeNames = &params.atomTypeNames;
     //mol.atomTypeDict  = &params.atomTypeDict;
-    params.loadBondTypes( "common_resources/BondTypes.dat");
+    params.loadBondTypes( "data/BondTypes.dat");
 
     mol.bindParams(&params);
 
-    mol.loadMol("common_resources/propylacid.mol");
-    //mol.loadMol_old("common_resources/propylacid.mol");
+    mol.loadMol("data/propylacid.mol");
+    //mol.loadMol_old("data/propylacid.mol");
     //mol.bondsOfAtoms();
     mol.autoAngles(true);   ;
     params.assignREs( mol.natoms, mol.atomType, mol.REQs );

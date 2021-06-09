@@ -71,7 +71,8 @@ class TestAppFARFF: public AppSDL2OGL_3D { public:
 
 TestAppFARFF::TestAppFARFF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D( id, WIDTH_, HEIGHT_ ) {
 
-    fontTex   = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    //fontTex   = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    fontTex     = makeTextureHard( "resources_gl1/dejvu_sans_mono_RGBA_pix.bmp" );
 
     //srand(15480);  int nat = 15; double sz = 4; double szH = 1;   // Test 1
     srand(1581);  int nat = 30; double sz = 5; double szH = 0.5;    // Test 2

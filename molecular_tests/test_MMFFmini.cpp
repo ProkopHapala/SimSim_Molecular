@@ -290,11 +290,11 @@ class TestAppMMFFmini : public AppSDL2OGL_3D { public:
 
 
 int TestAppMMFFmini::loadMoleculeXYZ( const char* fname, bool bAutoH ){
-    params.loadAtomTypes( "common_resources/AtomTypes.dat" );
-    params.loadBondTypes( "common_resources/BondTypes.dat" );
+    params.loadAtomTypes( "data/AtomTypes.dat" );
+    params.loadBondTypes( "data/BondTypes.dat" );
     builder.bindParams(&params);
     int nheavy = builder.load_xyz( fname, bAutoH, true, true );
-    readMatrix( "common_resources/polymer.lvs", 3, 3, (double*)&builder.lvec );
+    readMatrix( "data/polymer.lvs", 3, 3, (double*)&builder.lvec );
 
     //builder.printAtoms ();
     //builder.printConfs ();
@@ -322,8 +322,8 @@ int TestAppMMFFmini::loadMoleculeMol( const char* fname, bool bAutoH, bool bLoad
 
     if(bLoadTypes){
         printf( "bLoadTypes==True : load atom and bond types from file \n" );
-        params.loadAtomTypes( "common_resources/AtomTypes.dat" );
-        params.loadBondTypes( "common_resources/BondTypes.dat");
+        params.loadAtomTypes( "data/AtomTypes.dat" );
+        params.loadBondTypes( "data/BondTypes.dat");
         //builder.params = &params;
     }else{
         printf( "bLoadTypes==False : make default Atom names dictionary \n" );
@@ -515,14 +515,15 @@ TestAppMMFFmini::TestAppMMFFmini( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OG
 
     doChecks();
 
-    fontTex = makeTexture( "common_resources/dejvu_sans_mono_RGBA_inv.bmp" );
+    //fontTex = makeTexture( "common_resources/dejvu_sans_mono_RGBA_inv.bmp" );
+    fontTex     = makeTextureHard( "resources_gl1/dejvu_sans_mono_RGBA_pix.bmp" );
 
     // ------ using molecule from mol-file does not seem to work now - There is some problem with AtomConfs
     // >> This algorithm assumes all atoms with conf precede atoms without confs in the array
     // >>   ERROR in builder.sortBonds() => exit
 
     int nheavy = 0;
-    nheavy = loadMoleculeXYZ( "common_resources/polymer.xyz", false );
+    nheavy = loadMoleculeXYZ( "data/polymer.xyz", false );
     //nheavy = loadMoleculeXYZ( "common_resources/polymer-noH.xyz", false );
     //nheavy = loadMoleculeMol(  "/home/prokop/Dropbox/TEMP/ERC2021/Molecules/chain--frag-4---N-----.mol", false, true);
     //nheavy = loadMoleculeMol( "common_resources/propylacid-q.mol", false, true);   // use old method loading whole .mol file with hydrogens // currently distorted molecule :-(

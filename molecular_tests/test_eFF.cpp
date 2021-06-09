@@ -477,7 +477,8 @@ void TestAppRARFF::init2DMap( int n, double dx ){
 
 TestAppRARFF::TestAppRARFF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D( id, WIDTH_, HEIGHT_ ) {
 
-    fontTex   = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    //fontTex   = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    fontTex     = makeTextureHard( "resources_gl1/dejvu_sans_mono_RGBA_pix.bmp" );
     plot1.fontTex=fontTex;
 
     //checkDerivs( ff.KRSrho );   // exit(0);
@@ -491,7 +492,7 @@ TestAppRARFF::TestAppRARFF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D( 
     // ===== SETUP GEOM
     //char* fname = "data/H_eFF.xyz";
     //char* fname = "data/H2_eFF.xyz";
-    char* fname = "data/H2O_eFF.xyz";
+    //char* fname = "data/H2O_eFF.xyz";
     //char* fname = "data/H2_eFF_spin.xyz";
     //char* fname = "data/Ce1_eFF.xyz";
     //char* fname = "data/Ce2_eFF.xyz";
@@ -503,8 +504,7 @@ TestAppRARFF::TestAppRARFF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D( 
     //char* fname = "data/C2H4_eFF_spin.xyz";
     //char* fname = "data/C2H4_eFF_spin_.xyz";
     //char* fname = "data/C2H6_eFF_spin.xyz";
-    //char* fname = "data/C2H6_eFF_spin_.xyz";
-    //ff.loadFromFile_xyz( "data/C2H4_eFF_spin.xyz" );
+    char* fname = "data/C2H6_eFF_spin_.xyz";
     ff.loadFromFile_xyz( fname );
 
     /*
@@ -601,7 +601,7 @@ TestAppRARFF::TestAppRARFF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D( 
     //for(int i=0; i<ff.ne; i++){ printf( "e_pos[%i] (%g,%g,%g)\n", i, ff.epos[i].x, ff.epos[i].y, ff.epos[i].z ); }
 
     printf( "E %g | Ek %g Eee %g EeePaul %g Eaa %g Eae %g EaePaul %g \n", E, ff.Ek, ff.Eee, ff.EeePaul, ff.Eaa, ff.Eae, ff.EaePaul );
-    exit(0);
+    //exit(0);
 
 
     //ff.apos[0].z = 2.0;

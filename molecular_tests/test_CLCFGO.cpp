@@ -172,7 +172,8 @@ class TestAppCLCFSF: public AppSDL2OGL_3D { public:
 
 TestAppCLCFSF::TestAppCLCFSF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D( id, WIDTH_, HEIGHT_ ) {
 
-    fontTex     = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    //fontTex     = makeTextureHard( "common_resources/dejvu_sans_mono_RGBA_pix.bmp" );
+    fontTex     = makeTextureHard( "resources_gl1/dejvu_sans_mono_RGBA_pix.bmp" );
 
     /*
     Vec3d pij; double sij;
@@ -317,7 +318,6 @@ TestAppCLCFSF::TestAppCLCFSF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D
 
     solver.iPauliModel = 2;
 
-
     solver.printSetup();
     solver.printAtoms();
     solver.printElectrons();
@@ -336,7 +336,7 @@ TestAppCLCFSF::TestAppCLCFSF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D
     //plot1.xsharingLines(1, 100, -3.0, 0.1 );
     //plot1.xsharingLines( 2, 100,   -3.0, 0.1 );
 
-    /*
+
     nOrbPlot=_min(5,solver.nOrb);
     printf( " nOrbPlot %i solver.nOrb %i \n", nOrbPlot, solver.nOrb );
     plot1.add( new DataLine2D( 100, -3.0, 0.1, 0xFF0000FF, "Vatom" ) );
@@ -347,7 +347,6 @@ TestAppCLCFSF::TestAppCLCFSF( int& id, int WIDTH_, int HEIGHT_ ) : AppSDL2OGL_3D
     }
     //plot1.add( new DataLine2D( 100, -3.0, 0.1, 0xFFFF0000, "Orb1"     ) );
     //plot1.add( new DataLine2D( 100, -3.0, 0.1, 0xFFFF8000, "Orb2"     ) );
-    */
 
     /*
     solver.epos [0]=Vec3dZero;
@@ -381,6 +380,7 @@ void TestAppCLCFSF::draw(){
     glClear ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     glEnable( GL_DEPTH_TEST );
 
+
     dt = 0.001;
     if(bRun){
         //testColorOfHash();
@@ -396,6 +396,7 @@ void TestAppCLCFSF::draw(){
     }
 
     if(bDrawObjects)drawSolver( solver, oglSph, 0.0, 0.2 );
+
     if(bDrawPlots){
         plotAtomsPot( solver, plot1.lines[0],    (Vec3d){0.0,0.0,0.0}, (Vec3d){1.0,0.0,0.0}, 1.0, 0.2 );
         for(int io=0; io<nOrbPlot; io++){

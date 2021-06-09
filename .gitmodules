@@ -1,0 +1,8 @@
+[submodule "SimSim_core"]
+	path = SimSim_core
+	url = https://github.com/ProkopHapala/SimSim_core
+	branch = main
+[submodule "SimSim_GL1"]
+	path = SimSim_GL1
+	url = https://github.com/ProkopHapala/SimSim_GL1
+	branch = main
